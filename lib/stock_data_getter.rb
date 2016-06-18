@@ -104,12 +104,12 @@ class StockDataGetter
     puts @code
   end
 end
-
-from = "2011/01/4"
-to = "2011/03/4"
-market = :t
-sdg = StockDataGetter.new(from,to,market)
-
-(1300..1400).each do |code|
-  sdg.get_price_data(code)
-end
+#
+#from = "2011/01/4"
+#to = "2011/03/4"
+#market = :t
+#sdg = StockDataGetter.new(from,to,market)
+#
+#(1300..1400).each do |code|
+#  sdg.get_price_data(code)
+#end
