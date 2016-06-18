@@ -76,21 +76,21 @@ class TextToStock
   end
 end
 
-
-tts = TextToStock.new(data_dir: "data", stock_list: "tosho_list.txt", market_section: "東証1部")
-stock = tts.generate_stock(1301)
-puts stock.code
-puts stock.dates.first
-puts stock.open_prices.first
-
-tts.each_stock do |stock|
-  puts stock.code
-end
-
-cnt = 0
-tts.each_stock do |stock|
-  puts [stock.code, stock.dates.first, stock.dates.last].join(" ")
-  cnt += 1if !stock.dates.first.nil?
-end
-
-puts cnt
+#
+#tts = TextToStock.new(data_dir: "data", stock_list: "tosho_list.txt", market_section: "東証1部")
+#stock = tts.generate_stock(1301)
+#puts stock.code
+#puts stock.dates.first
+#puts stock.open_prices.first
+#
+#tts.each_stock do |stock|
+#  puts stock.code
+#end
+#
+#cnt = 0
+#tts.each_stock do |stock|
+#  puts [stock.code, stock.dates.first, stock.dates.last].join(" ")
+#  cnt += 1if !stock.dates.first.nil?
+#end
+#
+#puts cnt
