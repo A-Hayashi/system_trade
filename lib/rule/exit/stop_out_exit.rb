@@ -3,7 +3,7 @@
 require "./lib/base"
 
 class StopOutExit < Exit
-  def check_long
+  def check_long(trade, index)
     stop = trade.stop
     price = @stock.prices[index]
     return unless stop >= price[:low]
@@ -16,7 +16,7 @@ class StopOutExit < Exit
     exit(trade, index, price, time)
   end
 
-  def check_short
+  def check_short(trade, index)
     stop = trade.stop
     price = @stock.prices[index]
     return unless stop <= price[:high]

@@ -13,13 +13,13 @@ class EstrangementExit < Exit
     @estrangement = Estrangement.new(@stock, span: @span).calculate
   end
 
-  def check_long(index)
+  def check_long(trade, index)
     if @estrangement[index-1] > (-1)*@rate
       exit(trade,index,@stock.open_prices[index], :open)
     end
   end
 
-  def check_short(index)
+  def check_short(trade, index)
     if @estrangement[index-1] < @rate
       exit(trade,index,@stock.open_prices[index], :open)
     end

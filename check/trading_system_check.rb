@@ -6,12 +6,22 @@ require "./lib/text_to_stock"
 require "pp"
 
 @data = TextToStock.new(stock_list: "tosho_list.txt")
+#@trading_system = TradingSystem.new(
+#entries: EstrangementEntry.new(span: 20, rate: 5),
+#exits: [StopOutExit.new,
+#  EstrangementExit.new(span: 20, rate: 3)],
+#stops: AverageTrueRangeStop.new(span: 20),
+#filters: MovingAverageDirectionFilter.new(span: 30))
+
+
 @trading_system = TradingSystem.new(
 entries: EstrangementEntry.new(span: 20, rate: 5),
 exits: [StopOutExit.new,
   EstrangementExit.new(span: 20, rate: 3)],
 stops: AverageTrueRangeStop.new(span: 20),
-filters: MovingAverageDirectionFilter.new(span: 30))
+filters: MovingAverageDirectionFilter.new(span: 1))
+
+
 
 def simulate(code)
   stock = @data.generate_stock(code)

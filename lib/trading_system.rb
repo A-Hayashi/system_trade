@@ -80,7 +80,6 @@ class TradingSystem
 
   def check_entry_rule(long_short, index)
     @entries.each do |entry|
-      entry
       trade = entry.send("check_#{long_short}_entry", index)
       return trade if trade
     end
@@ -101,11 +100,12 @@ class TradingSystem
   end
 
   def trade_with_first_stop(trade, index)
-    return trade if @stop.empty?
+    return trade if @stops.empty?
     stop = tightest_stop(trade, index)
 
     return unless stop
     trade.first_stop = stop
     trade.stop = stop
+    trade
   end
 end

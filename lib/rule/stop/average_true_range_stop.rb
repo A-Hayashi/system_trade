@@ -2,7 +2,7 @@
 
 require "./lib/base"
 
-class AverageTrueRangeStop < Rule
+class AverageTrueRangeStop < Stop
   def initialize(params)
     @span = params[:span]
     @ratio = params[:ratio] || 1
@@ -23,7 +23,7 @@ class AverageTrueRangeStop < Rule
 
   private
 
-  def rage(index)
+  def range(index)
     @average_true_range[index-1]*@ratio
   end
 end
