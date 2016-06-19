@@ -1,7 +1,7 @@
 # coding: utf-8
 
 require "./lib/base"
-
+require "./lib/indicator"
 
 class Estrangement < Indicator
   def initialize(stock, params)
@@ -10,7 +10,7 @@ class Estrangement < Indicator
 
   end
 
-  def calcurate_indicator
+  def calculate_indicator
     true_ranges = @stock.prices.map_indicator(2) do |prices|
       previous_close = prices.first[:close]
       current_high = prices.last[:high]
